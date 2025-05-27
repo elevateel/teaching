@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro-Skills - Learn a New Skill</title>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: #fafaf9; /* stone-50 */
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        /* Header styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 5rem;
+            background-color: white;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo-container {
+            display: flex;
+            gap: 0.875rem;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.75rem;
+            color: #2489D3;
+            opacity: 0.9;
+        }
+
+        nav {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 1.125rem;
+            font-weight: 700;
+            line-height: 1.5rem;
+            cursor: pointer;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+        }
+
+        .btn {
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-small {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            height: 38px;
+            width: 115px;
+        }
+
+        .btn-medium {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+            height: 60px;
+            width: 200px;
+        }
+
+        .btn-primary {
+            color: white;
+            background-color: #2489D3;
+            border: none;
+        }
+
+        .btn-outline {
+            color: #2489D3;
+            background-color: transparent;
+            border: 2px solid #2489D3;
+        }
+
+        /* Hero section styles */
+        .hero-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 7rem 5rem 5rem;
+            position: relative;
+        }
+
+        .hero-content {
+            width: 501px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .hero-title {
+            font-size: 3.75rem;
+            font-weight: 700;
+            line-height: 4.8125rem;
+            color: black;
+            position: relative;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+            color: rgba(0, 0, 0, 0.6);
+            margin-bottom: 7rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 9rem;
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 5rem;
+            align-items: flex-start;
+        }
+
+        .stat-counter {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .stat-count {
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 3.5rem;
+            margin-bottom: 0.125rem;
+        }
+
+        .stat-label {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.75rem;
+            color: black;
+            max-width: 125px;
+        }
+
+        .hero-visuals {
+            position: relative;
+            height: 545px;
+            width: 554px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.25rem 2.5rem;
+            }
+
+            .hero-section {
+                flex-direction: column;
+                gap: 4rem;
+                align-items: center;
+                padding: 4rem 2.5rem;
+            }
+
+            .hero-content {
+                width: 100%;
+                max-width: 600px;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-visuals {
+                height: 450px;
+                width: 450px;
+                transform: scale(0.8);
+            }
+
+            .stats-container {
+                justify-content: center;
+            }
+
+            .stat-counter {
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header {
+                padding: 1rem 1.25rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .auth-buttons {
+                gap: 0.625rem;
+            }
+
+            .btn-small {
+                width: 5rem;
+                height: 2rem;
+                font-size: 0.875rem;
+            }
+
+            .hero-section {
+                gap: 2.5rem;
+                padding: 2.5rem 1.25rem;
+            }
+
+            .hero-title {
+                font-size: 1.875rem;
+                line-height: normal;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                margin-bottom: 4rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+                margin-bottom: 5rem;
+            }
+
+            .btn-medium {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .hero-visuals {
+                height: 300px;
+                width: 300px;
+                transform: scale(0.6);
+            }
+
+            .stats-container {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: center;
+            }
+
+            .stat-counter {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-circle">
+                    <circle cx="20" cy="20" r="20" fill="#2489D3"></circle>
+                </svg>
+                <h1 class="logo-text">Pro-Skills</h1>
+            </div>
+
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Classes</a>
+                <a href="#">Plans</a>
+                <a href="#">About Us</a>
+            </nav>
+
+            <div class="auth-buttons">
+                <button class="btn btn-small btn-outline">Login</button>
+                <button class="btn btn-small btn-primary">Sign In</button>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2 class="hero-title">
+                    Learn a New Skill
+                    <svg width="218" height="22" viewBox="0 0 218 22" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 67px; left: 211px; width: 212px; height: 16px">
+                        <path d="M3 19C44.7146 4.24298 103.5 2.67296 128.5 2.99996C159.5 3.40545 193 8.00001 215 12.8779" stroke="#F0C932" stroke-width="5" stroke-linecap="round"></path>
+                    </svg>
+                    Everyday, Anytime, and Anywhere.
+                </h2>
+
+                <p class="hero-description">
+                    <strong>1000+</strong> Courses covering all tech domains for you to learn and explore new
+                    oppurtunities. Learn from Industry Experts and land your Dream
+                    Job.
+                </p>
+
+                <div class="hero-buttons">
+                    <button class="btn btn-medium btn-primary">Start Trial</button>
+                    <button class="btn btn-medium btn-outline">How it Works</button>
+                </div>
+
+                <div class="stats-container">
+                    <div class="stat-counter">
+                        <h3 class="stat-count">1000+</h3>
+                        <p class="stat-label">Courses to choose from</p>
+                    </div>
+                    <div class="stat-counter">
+                        <h3 class="stat-count">5000+</h3>
+                        <p class="stat-label">Students Trained</p>
+                    </div>
+                    <div class="stat-counter">
+                        <h3 class="stat-count">200+</h3>
+                        <p class="stat-label">Professional Trainers</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visuals">
+                <!-- Main Circle -->
+                <svg width="554" height="545" viewBox="0 0 554 545" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 0; left: 0; width: 554px; height: 545px">
+                    <circle cx="240" cy="304" r="239.5" stroke="black" stroke-opacity="0.7"></circle>
+                    <circle cx="235.199" cy="308.913" r="235.199" fill="#FE753F"></circle>
+                    <mask id="mask0_4_38" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="73" width="471" height="472">
+                        <circle cx="235.199" cy="308.913" r="235.199" fill="#D9D9D9"></circle>
+                    </mask>
+                    <g mask="url(#mask0_4_38)">
+                        <rect x="15.6056" y="-5.42856" width="539.509" height="558.459"></rect>
+                    </g>
+                    <rect x="14.491" y="0.144867" width="539.509" height="436.958"></rect>
+                </svg>
+
+                <!-- Images -->
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/fb346b08344211af2d55bf164366b57d4317d62c?placeholderIfAbsent=true" alt="" style="position: absolute; height: 424px; left: -293px; transform: rotate(-11.352deg); top: -161px; width: 424px;">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8caab1b72f98b4f8384aab9255ff728f4cb0ca92?placeholderIfAbsent=true" alt="" style="position: absolute; height: 275px; left: 309px; transform: rotate(13.604deg); top: 355px; width: 275px;">
+
+                <!-- Decorative elements -->
+                <svg width="151" height="147" viewBox="0 0 151 147" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: -30px; left: 377px; width: 151px; height: 147px">
+                    <path d="M150.5 66.5C150.5 104.332 120.332 147 82.5 147C44.6685 147 0 120.332 0 82.5C0 44.6685 26.1685 0.5 64 0.5C101.832 0.5 150.5 28.6685 150.5 66.5Z" fill="#7253A4"></path>
+                </svg>
+
+                <svg width="126" height="127" viewBox="0 0 126 127" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 472px; left: -90px; width: 125px; height: 122px; transform: rotate(-58.667deg)">
+                    <path d="M90.8436 6.47543C117.754 22.8582 135.075 62.7382 118.735 89.5772C102.396 116.416 64.1335 136.557 37.2234 120.174C10.3133 103.791 -9.80215 66.0996 6.53735 39.2606C22.8769 12.4216 63.9335 -9.90735 90.8436 6.47543Z" fill="#F0C932"></path>
+                </svg>
+
+                <svg width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 409px; left: -73px; width: 61px; height: 60px; transform: rotate(-58.667deg)">
+                    <path d="M44.5915 3.37491C57.7719 11.3991 66.2555 30.9319 58.2525 44.0774C50.2496 57.223 31.5091 67.0877 18.3288 59.0636C5.14849 51.0394 -4.70389 32.5783 3.29905 19.4328C11.302 6.28727 31.4112 -4.64923 44.5915 3.37491Z" fill="#2489D3"></path>
+                </svg>
+
+                <svg width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 84px; left: 506px; width: 61px; height: 60px; transform: rotate(-58.667deg)">
+                    <path d="M44.8312 2.99875C58.0115 11.0229 66.4951 30.5558 58.4922 43.7013C50.4892 56.8468 31.7488 66.7116 18.5684 58.6874C5.38811 50.6633 -4.46427 32.2021 3.53868 19.0566C11.5416 5.91111 31.6508 -5.02539 44.8312 2.99875Z" fill="#DB604E"></path>
+                </svg>
+
+                <svg width="151" height="147" viewBox="0 0 151 147" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: -33px; left: 387px; width: 151px; height: 147px">
+                    <path d="M64 1.5C82.6951 1.5 104.123 8.46996 120.865 20.1338C137.618 31.8052 149.5 48.0391 149.5 66.5C149.5 85.1682 142.049 105.077 129.905 120.313C117.761 135.551 101.023 146 82.5 146C63.7979 146 43.3755 139.401 27.6455 128.124C11.9148 116.846 1 100.99 1 82.5C1 63.7943 7.47625 43.4972 18.627 27.8945C29.7771 12.2928 45.5071 1.5 64 1.5Z" stroke="black" stroke-opacity="0.6" stroke-width="2"></path>
+                </svg>
+
+                <svg width="128" height="125" viewBox="0 0 128 125" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 476px; left: -77px; width: 125px; height: 122px; transform: rotate(20.443deg)">
+                    <path d="M76.7012 3.51522C91.2149 8.92526 105.837 20.5563 115.456 34.4882C125.082 48.4309 129.579 64.4882 124.235 78.8235C118.82 93.3524 107.256 106.697 93.4028 115.046C79.5483 123.395 63.5378 126.674 49.1858 121.324C34.6654 115.912 20.7197 104.861 11.7772 91.5274C2.83427 78.1929 -1.02552 62.7105 4.32802 48.3478C9.75679 33.7837 20.6789 19.8513 33.8667 10.9304C47.0537 2.01002 62.3772 -1.82404 76.7012 3.51522Z" stroke="black" stroke-opacity="0.6" stroke-width="2"></path>
+                </svg>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
